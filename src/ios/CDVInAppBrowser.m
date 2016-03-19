@@ -405,8 +405,9 @@
 
         [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
     }
-
-    return YES;
+    
+    //Horrible bodge for now
+    return ![[request.URL path] containsString:"token"]];
 }
 
 - (void)webViewDidStartLoad:(UIWebView*)theWebView
