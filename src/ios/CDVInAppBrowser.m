@@ -407,7 +407,7 @@
     }
     
     //Horrible bodge for now
-    return ![[request.URL path] containsString:"token"]];
+    return ![[request.URL path] containsString:@"token"];
 }
 
 - (void)webViewDidStartLoad:(UIWebView*)theWebView
