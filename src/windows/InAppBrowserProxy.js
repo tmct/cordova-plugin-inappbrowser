@@ -42,6 +42,10 @@ var isWebViewAvailable = cordova.platformId === 'windows';
 function attachNavigationEvents(element, callback) {
     if (isWebViewAvailable) {
         element.addEventListener("MSWebViewNavigationStarting", function (e) {
+            var tokenExistsInQuery = !!e.uri.split("?")[1] && e.uri.split("?")[1].indexOf('token=') !== -1;
+            if (tokenExistsInQuery) {
+                e.preventDefault();
+            }
             callback({ type: "loadstart", url: e.uri}, {keepCallback: true} );
         });
 
