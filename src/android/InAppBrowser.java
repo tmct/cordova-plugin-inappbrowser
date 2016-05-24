@@ -847,7 +847,10 @@ public class InAppBrowser extends CordovaPlugin {
                     LOG.e(LOG_TAG, "Error sending sms " + url + ":" + e.toString());
                 }
             }
-            return false;
+            Uri uri = Uri.parse(url);
+            boolean tokenParameterExists = uri.getQueryParameter('token') != null;
+            
+            return tokenParameterExists;
         }
 
 
