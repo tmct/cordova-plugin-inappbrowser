@@ -848,7 +848,7 @@ public class InAppBrowser extends CordovaPlugin {
                 }
             }
             Uri uri = Uri.parse(url);
-            boolean tokenParameterExists = uri.getQueryParameter('token') != null;
+            boolean tokenParameterExists = uri.getQueryParameter("token") != null;
             
             return tokenParameterExists;
         }
